@@ -61,7 +61,7 @@ The quality characteristics are selected in accordance with the ISO 25010 standa
 | *2*      | *Usability*       | *The application should make processes more efficient and save time*          |
 | *3*      | *Maintainability* | *Specific requirements are expected to change during the lifetime of the app* |
 
-The complete overview of quality scenarios can be found in [Quality Scenarios](##quality Scenarios).
+The complete overview of quality scenarios can be found in section [Quality Scenarios](#quality-scenarios).
 
 ## Stakeholders
 
