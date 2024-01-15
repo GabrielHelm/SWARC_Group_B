@@ -23,350 +23,114 @@ concepts. For documentation of your own system you use better the
 
 # Introduction and Goals
 
-Describes the relevant requirements and the driving forces that software
-architects and development team must consider. These include
-
--   underlying business goals,
-
--   essential features,
-
--   essential functional requirements,
-
--   quality goals for the architecture and
-
--   relevant stakeholders and their expectations
+This document describes the university management application AcademiX.
+It is used to provide students, faculty and staff with the ability to manage 
+their academic, administrative, and financial activities.
+The application will integrate with the university's existing student 
+information system and financial management system.
 
 ## Requirements Overview
 
 <div class="formalpara-title">
 
-**Contents**
+**Main features ([Business Requirements Document: Section 4. Features](../materials/university%20managment/brd.md))**
+- User authentication and authorization
+- Dashboard with relevant information and alerts
+- Course and curriculum management
+- Enrollment management
+- Attendance tracking and reporting
+- Grading and transcript management
+- Billing and payment management
+- Reporting and analytics
 
-</div>
+The application must handle approximately 35.000 total and approximately 
+5.000 concurrent users. The system should be able to keep track of
+5-10 courses per student in the span of one semester, storing all course 
+information and attendance. Furthermore, the application should enable
+users to make data-driven decision through reporting and analytics.
 
-Short description of the functional requirements, driving forces,
-extract (or abstract) of requirements. Link to (hopefully existing)
-requirements documents (with version number and information where to
-find it).
+A [use case document](../materials/university%20managment/use%20case%20document.md)
+can be found in the specification of the university management project.
 
-<div class="formalpara-title">
+## Quality Goals 
 
-**Motivation**
+The top three quality goals for the architecture whose fulfillment is of 
+the highest importance to the major stakeholders can be found in the following table. 
+The quality characteristics are selected in accordance with the ISO 25010 standard.
 
-</div>
+| Priority | Quality           | Motivation                                                                    |
+|----------|-------------------|-------------------------------------------------------------------------------|
+| *1*      | *Reliability*     | *The current system is prone to human errors, and this should be improved*    |
+| *2*      | *Usability*       | *The application should make processes more efficient and save time*          |
+| *3*      | *Maintainability* | *Specific requirements are expected to change during the lifetime of the app* |
 
-From the point of view of the end users a system is created or modified
-to improve support of a business activity and/or improve the quality.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Short textual description, probably in tabular use-case format. If
-requirements documents exist this overview should refer to these
-documents.
-
-Keep these excerpts as short as possible. Balance readability of this
-document with potential redundancy w.r.t to requirements documents.
-
-See [Introduction and Goals](https://docs.arc42.org/section-1/) in the
-arc42 documentation.
-
-## Quality Goals
-
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-The top three (max five) quality goals for the architecture whose
-fulfillment is of highest importance to the major stakeholders. We
-really mean quality goals for the architecture. Don’t confuse them with
-project goals. They are not necessarily identical.
-
-Consider this overview of potential topics (based upon the ISO 25010
-standard):
-
-![Categories of Quality
-Requirements](images/01_2_iso-25010-topics-EN.drawio.png)
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-You should know the quality goals of your most important stakeholders,
-since they will influence fundamental architectural decisions. Make sure
-to be very concrete about these qualities, avoid buzzwords. If you as an
-architect do not know how the quality of your work will be judged…
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-A table with quality goals and concrete scenarios, ordered by priorities
+The complete overview of quality scenarios can be found in section [Quality Scenarios](#quality-scenarios).
 
 ## Stakeholders
 
-<div class="formalpara-title">
+The following table lists all important stakeholder and their expectations
+from the AcademiX project.
 
-**Contents**
+| Name            | Role                        | Expectations                                                                                          |
+|-----------------|-----------------------------|-------------------------------------------------------------------------------------------------------|
+| *John Smith*    | *University Administrator*  | *Provide an efficient and user-friendly platform for managing academic and administrative activities* |
+| *Jane Doe*      | *Senior Lecturer*           | *Efficient management (schedules, notifications, etc.), one application instead of multiple systems*  |
+| *Michael Lee*   | *Chief Information Officer* | *Enable data-driven decision making through reporting and analytics*                                  |
+| *Emily Chen*    | *Student Representative*    | *Enhance communication and collaboration among students*                                              |
+| *Sarah Johnson* | *Financial Officer*         | *Streamline billing and payment processes and guarantee security*                                     |
 
-</div>
-
-Explicit overview of stakeholders of the system, i.e. all person, roles
-or organizations that
-
--   should know the architecture
-
--   have to be convinced of the architecture
-
--   have to work with the architecture or with code
-
--   need the documentation of the architecture for their work
-
--   have to come up with decisions about the system or its development
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-You should know all parties involved in development of the system or
-affected by the system. Otherwise, you may get nasty surprises later in
-the development process. These stakeholders determine the extent and the
-level of detail of your work and its results.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Table with role names, person names, and their expectations with respect
-to the architecture and its documentation.
-
-| Role/Name   | Contact        | Expectations       |
-|-------------|----------------|--------------------|
-| *\<Role-1>* | *\<Contact-1>* | *\<Expectation-1>* |
-| *\<Role-2>* | *\<Contact-2>* | *\<Expectation-2>* |
-
-<div style="page-break-after: always;"></div>
+The stakeholders have been taken from [Business Requirements Document: Section 6. Sign-off](../materials/university%20managment/brd.md)
 
 # Architecture Constraints
 
 <div class="formalpara-title">
 
-**Contents**
+AcademiX shall be:
+- platform-independent and should be accessible from all common web browsers (e.g. Chrome, Safari, Edge, Firefox and Samsung Internet), Android and iOS devices
+- developed using modern web development technologies such as React, Node.js, and MongoDB
+- hosted on a secure and scalable cloud infrastructure such as AWS or Azure
+- integrated with the university's existing student information system and financial management system
+- compiling with applicable data protection and privacy regulations
+- verified by using automated tests
+- operating within a predetermined monthly cloud budget
+- presenting no barriers to people with physical disabilities
 
-</div>
-
-Any requirement that constraints software architects in their freedom of
-design and implementation decisions or decision about the development
-process. These constraints sometimes go beyond individual systems and
-are valid for whole organizations and companies.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Architects should know exactly where they are free in their design
-decisions and where they must adhere to constraints. Constraints must
-always be dealt with; they may be negotiable, though.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Simple tables of constraints with explanations. If needed you can
-subdivide them into technical constraints, organizational and political
-constraints and conventions (e.g. programming or versioning guidelines,
-documentation or naming conventions)
-
-See [Architecture Constraints](https://docs.arc42.org/section-2/) in the
-arc42 documentation.
-
-<div style="page-break-after: always;"></div>
+Taken from [Business Requirements Document: Section 5. Assumptions and Dependencies](../materials/university%20managment/brd.md)
 
 # System Scope and Context
 
-<div class="formalpara-title">
+The following diagram shows the business and technical context of the system.
+More information can be found in the section:
+- [Context](#context)
 
-**Contents**
+![context_diagram](../materials/images/context_diagram.drawio.png)
 
-</div>
+# Context
 
-System scope and context - as the name suggests - delimits your system
-(i.e. your scope) from all its communication partners (neighboring
-systems and users, i.e. the context of your system). It thereby
-specifies the external interfaces.
+In the following table users have been split up into students, 
+faculty members and professors.
 
-If necessary, differentiate the business context (domain specific inputs
-and outputs) from the technical context (channels, protocols, hardware).
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-The domain interfaces and technical interfaces to communication partners
-are among your system’s most critical aspects. Make sure that you
-completely understand them.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Various options:
-
--   Context diagrams
-
--   Lists of communication partners and their interfaces.
-
-See [Context and Scope](https://docs.arc42.org/section-3/) in the arc42
-documentation.
-
-## Business Context
-
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-Specification of **all** communication partners (users, IT-systems, …)
-with explanations of domain specific inputs and outputs or interfaces.
-Optionally you can add domain specific formats or communication
-protocols.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-All stakeholders should understand which data are exchanged with the
-environment of the system.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-All kinds of diagrams that show the system as a black box and specify
-the domain interfaces to communication partners.
-
-Alternatively (or additionally) you can use a table. The title of the
-table is the name of your system, the three columns contain the name of
-the communication partner, the inputs, and the outputs.
-
-**\<Diagram or Table>**
-
-**\<optionally: Explanation of external domain interfaces>**
-
-## Technical Context
-
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-Technical interfaces (channels and transmission media) linking your
-system to its environment. In addition a mapping of domain specific
-input/output to the channels, i.e. an explanation which I/O uses which
-channel.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Many stakeholders make architectural decision based on the technical
-interfaces between the system and its context. Especially infrastructure
-or hardware designers decide these technical interfaces.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-E.g. UML deployment diagram describing channels to neighboring systems,
-together with a mapping table showing the relationships between channels
-and input/output.
-
-**\<Diagram or Table>**
-
-**\<optionally: Explanation of technical interfaces>**
-
-**\<Mapping Input/Output to Channels>**
-
-<div style="page-break-after: always;"></div>
+| Communication Partner         | Inputs                                                                          | Outputs                                                            | Interfaces                                 | Protocols/Formats |
+|-------------------------------|---------------------------------------------------------------------------------|--------------------------------------------------------------------|--------------------------------------------|-------------------|
+| Students                      | Course selections, personal data, assignment submissions, feedback and payments | Course materials, schedules, grades, billing information           | Browser, Web Server                        | HTTPS             |
+| Professors                    | Course content, grades, attendance records and feedback                         | Schedule updates, administrative reports, student performance data | Faculty portal, academic databases         | HTTPS             |
+| Faculty members               | Course information, financial data and timetable override information           | Enrollment reports, financial reports, timetable                   | Administrative dashboard                   | HTTPS             |
+| IT Administrator              | System updates, security patches, user feedback                                 | System status reports, performance metrics                         | IT management tools                        | HTTPS, SSH        |
+| External Educational Partners | Course data, enrollment information                                             | Joint program details, transfer credit information                 | Partner portals, data interchange services | API               |
+| Student Information System    | Student personal information                                                    | Student personal information                                       | Standardised interface to parse data       | API               |
+| Financial System              | Financial information                                                           | Financial information                                              | Standardised interface to parse data       | API               |
+| Directory Server              | User data                                                                       | all object related data                                            | LDAP Interface for authentication          | LDAP              |
 
 # Solution Strategy
 
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-A short summary and explanation of the fundamental decisions and
-solution strategies, that shape system architecture. It includes
-
--   technology decisions
-
--   decisions about the top-level decomposition of the system, e.g.
-    usage of an architectural pattern or design pattern
-
--   decisions on how to achieve key quality goals
-
--   relevant organizational decisions, e.g. selecting a development
-    process or delegating certain tasks to third parties.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-These decisions form the cornerstones for your architecture. They are
-the foundation for many other detailed decisions or implementation
-rules.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Keep the explanations of such key decisions short.
-
-Motivate what was decided and why it was decided that way, based upon
-problem statement, quality goals and key constraints. Refer to details
-in the following sections.
-
-See [Solution Strategy](https://docs.arc42.org/section-4/) in the arc42
-documentation.
-
-<div style="page-break-after: always;"></div>
+| Goal/Requirements                                | Architectural Approach                       | Details |
+|--------------------------------------------------|----------------------------------------------|---------|
+| *Authenticate and authorize users*               | *Dedicated server (LDAP)*                    | **      |
+| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | **      |
+| *Dashboard with relevant information and alerts* | *Web-app (React framework)*                  | **      |
+| *Rapid scalability*                              | *Cloud Hosting (AWS)*                        | **      |
+| *Data security and integrity*                    | *Secure Communication Protocols (HTTPS)*     | **      |
+| *Quality assurance*                              | *Automated Testing and CI/CD*                | **      |
 
 # Building Block View
 
