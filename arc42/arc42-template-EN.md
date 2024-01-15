@@ -2,6 +2,12 @@
 
 **About arc42**
 
+<div style="color:red;">
+
+*TODO: change this generic header and add information about our scenario*
+
+</div>
+
 arc42, the template for documentation of software and system
 architecture.
 
@@ -21,7 +27,7 @@ concepts. For documentation of your own system you use better the
 
 <div style="page-break-after: always;"></div>
 
-# Introduction and Goals
+# 1. Introduction and Goals
 
 This document describes the university management application AcademiX.
 It is used to provide students, faculty and staff with the ability to manage 
@@ -81,7 +87,7 @@ from the AcademiX project.
 
 The stakeholders have been taken from [Business Requirements Document: Section 6. Sign-off](../materials/university%20managment/brd.md)
 
-# Architecture Constraints
+# 2. Architecture Constraints
 
 <div class="formalpara-title">
 
@@ -97,15 +103,14 @@ AcademiX shall be:
 
 Taken from [Business Requirements Document: Section 5. Assumptions and Dependencies](../materials/university%20managment/brd.md)
 
-# System Scope and Context
+# 3. System Scope and Context
 
 The following diagram shows the business and technical context of the system.
-More information can be found in the section:
-- [Context](#context)
+More information can be found in the section [Context](#context).
 
 ![context_diagram](../materials/images/context_diagram.drawio.png)
 
-# Context
+## Context
 
 In the following table users have been split up into students, 
 faculty members and professors.
@@ -121,7 +126,7 @@ faculty members and professors.
 | Financial System              | Financial information                                                           | Financial information                                              | Standardised interface to parse data       | API               |
 | Directory Server              | User data                                                                       | all object related data                                            | LDAP Interface for authentication          | LDAP              |
 
-# Solution Strategy
+# 4. Solution Strategy
 
 | Goal/Requirements                                | Architectural Approach                       | Details |
 |--------------------------------------------------|----------------------------------------------|---------|
@@ -233,7 +238,7 @@ The application must be compliant with relevant legal obligations, especially co
 
 <div style="page-break-after: always;"></div>
 
-# Architecture Decisions
+# 9. Architecture Decisions
 
 In the development of the University Management Application, several key architectural decisions have been made to ensure the project's success, scalability, and sustainability. These decisions are critical in shaping the overall architecture of the system and its ability to meet both current and future needs.
 
@@ -262,7 +267,7 @@ In the development of the University Management Application, several key archite
 
 <div style="page-break-after: always;"></div>
 
-# Quality Requirements
+# 10. Quality Requirements
 
 ## Quality Tree
 
@@ -286,7 +291,7 @@ In the development of the University Management Application, several key archite
 
 <div style="page-break-after: always;"></div>
 
-# Risks and Technical Debts
+# 11. Risks and Technical Debts
 
 | Component                     | Dependency                            | Description                                                                                           | Technical Debt                                                                                                                                                                                 |
 |-------------------------------|---------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -304,7 +309,7 @@ In the development of the University Management Application, several key archite
 
 <div style="page-break-after: always;"></div>
 
-# Glossary
+# 12. Glossary
 
 <div class="formalpara-title">
 
