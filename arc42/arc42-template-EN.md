@@ -139,7 +139,7 @@ This overview visualizes the most important components and their dependencies of
 
 <div style="margin:25px;">
 
-![Diagram showing the Building Block View Level-1.](images\5_building_block_lvl1.png "Building Block View Level-1")
+![Diagram showing the Building Block View Level-1.](../materials/images/5_building_block_lvl1.png "Building Block View Level-1")
 
 </div>
 
@@ -171,7 +171,7 @@ system’s building blocks in form of scenarios.
 
 <div style="margin:25px;">
 
-![Diagram showing sequence of events when student requests report.](images\6_runtime_view_report_sequence.png "Runtime View Scenario 1")
+![Diagram showing sequence of events when student requests report.](../materials/images/6_runtime_view_report_sequence.png "Runtime View Scenario 1")
 
 </div>
 
@@ -188,7 +188,7 @@ This is a description of the top-level infrastructure in the system:
 
 <div style="margin:25px;">
 
-![Diagram showing top-level infrastructure elements.](images\7_deployment_view_lvl1.png "Deployment View Level 1")
+![Diagram showing top-level infrastructure elements.](../materials/images/7_deployment_view_lvl1.png "Deployment View Level 1")
 
 </div>
 
@@ -235,205 +235,72 @@ The application must be compliant with relevant legal obligations, especially co
 
 # Architecture Decisions
 
-<div class="formalpara-title">
+In the development of the University Management Application, several key architectural decisions have been made to ensure the project's success, scalability, and sustainability. These decisions are critical in shaping the overall architecture of the system and its ability to meet both current and future needs.
 
-**Contents**
+## Technology Stack Selection
+- **Front-End Development**: React has been chosen for its component-based architecture, enhancing the responsiveness and scalability of the user interface.
+- **Back-End Development**: Node.js is selected for its non-blocking I/O model, ensuring efficient handling of concurrent user requests.
+- **Data Storage**: MongoDB, a NoSQL database, is chosen for its flexibility in handling diverse data types and scalability.
 
-</div>
+## Cloud-Based Infrastructure
+- The application will be deployed on AWS, supporting scalability, high availability, and robust security features essential for protecting sensitive educational data.
 
-Important, expensive, large scale or risky architecture decisions
-including rationales. With "decisions" we mean selecting one alternative
-based on given criteria.
+## Microservices Architecture
+- Adopting a microservices architecture enhances scalability and maintainability. It allows individual modules like Student Management and Course Management to be developed, deployed, and scaled independently.
 
-Please use your judgement to decide whether an architectural decision
-should be documented here in this central section or whether you better
-document it locally (e.g. within the white box template of one building
-block).
+## API-First Approach
+- An API-first design facilitates integration with existing systems like the Student Information System and Financial Management System, ensuring seamless data exchange and integration with third-party services.
 
-Avoid redundancy. Refer to section 4, where you already captured the
-most important decisions of your architecture.
+## Responsive Web Design
+- To accommodate the diverse range of devices used by students and faculty, the application is designed to be responsive across desktops, tablets, and mobile devices.
 
-<div class="formalpara-title">
+## Scalable Reporting and Analytics Module
+- The architecture includes a scalable solution for reporting and analytics, capable of handling large volumes of data and providing real-time insights.
 
-**Motivation**
-
-</div>
-
-Stakeholders of your system should be able to comprehend and retrace
-your decisions.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Various options:
-
--   ADR ([Documenting Architecture
-    Decisions](https://cognitect.com/blog/2011/11/15/documenting-architecture-decisions))
-    for every important decision
-
--   List or table, ordered by importance and consequences or:
-
--   more detailed in form of separate sections per decision
-
-See [Architecture Decisions](https://docs.arc42.org/section-9/) in the
-arc42 documentation. There you will find links and examples about ADR.
+## Automated Testing and CI/CD
+- The project incorporates automated testing and CI/CD pipelines to maintain high code quality, streamline the development process, and reduce the risk of bugs or downtime.
 
 <div style="page-break-after: always;"></div>
 
 # Quality Requirements
 
-<div class="formalpara-title">
-
-**Content**
-
-</div>
-
-This section contains all quality requirements as quality tree with
-scenarios. The most important ones have already been described in
-section 1.2. (quality goals)
-
-Here you can also capture quality requirements with lesser priority,
-which will not create high risks when they are not fully achieved.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Since quality requirements will have a lot of influence on architectural
-decisions you should know for every stakeholder what is really important
-to them, concrete and measurable.
-
-See [Quality Requirements](https://docs.arc42.org/section-10/) in the
-arc42 documentation.
-
 ## Quality Tree
 
-<div class="formalpara-title">
-
-**Content**
-
-</div>
-
-The quality tree (as defined in ATAM – Architecture Tradeoff Analysis
-Method) with quality/evaluation scenarios as leafs.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-The tree structure with priorities provides an overview for a sometimes
-large number of quality requirements.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-The quality tree is a high-level overview of the quality goals and
-requirements:
-
--   tree-like refinement of the term "quality". Use "quality" or
-    "usefulness" as a root
-
--   a mind map with quality categories as main branches
-
-In any case the tree should include links to the scenarios of the
-following section.
+![Diagram showing high-level overview of the quality goals and requirements.](../materials/images/10_quality_tree.png "Quality Tree")
 
 ## Quality Scenarios
 
-<div class="formalpara-title">
-
-**Contents**
-
-</div>
-
-Concretization of (sometimes vague or implicit) quality requirements
-using (quality) scenarios.
-
-These scenarios describe what should happen when a stimulus arrives at
-the system.
-
-For architects, two kinds of scenarios are important:
-
--   Usage scenarios (also called application scenarios or use case
-    scenarios) describe the system’s runtime reaction to a certain
-    stimulus. This also includes scenarios that describe the system’s
-    efficiency or performance. Example: The system reacts to a user’s
-    request within one second.
-
--   Change scenarios describe a modification of the system or of its
-    immediate environment. Example: Additional functionality is
-    implemented or requirements for a quality attribute change.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Scenarios make quality requirements concrete and allow to more easily
-measure or decide whether they are fulfilled.
-
-Especially when you want to assess your architecture using methods like
-ATAM you need to describe your quality goals (from section 1.2) more
-precisely down to a level of scenarios that can be discussed and
-evaluated.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-Tabular or free form text.
+| Goal                         | Source of Stimulus        | Stimulus                                | Environment                         | Response Measure                                                        |
+|------------------------------|---------------------------|-----------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
+| Performance                  | Student                   | Checks timetable                        | Runtime under normal operation      | Timetable loads within 0.2s                                             |
+| Functionality / Security     | Malicious Actor           | Database attack (SQL injection)         | Runtime under normal operation      | Request of malicious actor is denied, and event is reported             |
+| Maintainability/Testability  | Developer                 | Developer tries to merge changes        | Design time                         | Code coverage is determined, and changes are rejected if coverage < 0.8 |
+| Usability                    | Student                   | Navigation through application          | Runtime under normal operation      | 90% of users find the navigation intuitive in user surveys              |
+| Scalability                  | System Admin              | Increased number of concurrent users    | Runtime under peak load             | System supports up to 10,000 concurrent users without degradation       |
+| Reliability                  | Student                   | Accessing course material               | Runtime under normal operation      | 99.9% uptime guarantee for course material access                       |
+| Accessibility                | Student with Disability   | Use of application                      | Runtime under normal operation      | Application is compliant with WCAG 2.1 Level AA standards               |
+| Interoperability             | External System           | Exchange data with university system    | Runtime under normal operation      | Data exchange completes within 5 seconds 95% of the time                |
+| Data Integrity               | Database Admin            | Database backup                         | Routine maintenance                 | Successful backup with 100% data integrity verified weekly              |
+| Compliance                   | Auditor                   | Audit of user data handling             | During audit                        | Application demonstrates full compliance with GDPR and other laws       |
+| Security / Privacy           | Student                   | Submission of sensitive data            | Runtime under normal operation      | All sensitive data is encrypted both in transit and at rest             |
 
 <div style="page-break-after: always;"></div>
 
 # Risks and Technical Debts
 
-<div class="formalpara-title">
+| Component                     | Dependency                            | Description                                                                                           | Technical Debt                                                                                                                                                                                 |
+|-------------------------------|---------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Front-End Framework           | React Library                         | The application's front end is developed using React.                                                 | React's frequent updates may require regular refactoring of the codebase to stay up-to-date. This can lead to technical debt if not managed properly.                                           |
+| Back-End Technology           | Node.js Runtime Environment           | Node.js is used for the backend services.                                                             | Node.js, being single-threaded, might struggle under heavy computational tasks, leading to potential performance issues. Additionally, the asynchronous nature of Node.js can lead to callback hell if not handled with modern practices like async/await. |
+| Database System               | MongoDB NoSQL Database                | MongoDB is used as the primary database.                                                              | The NoSQL nature of MongoDB may lead to challenges in data consistency and integrity, especially in complex transaction scenarios. There might be a need for additional handling to ensure ACID properties.                                           |
+| Microservices Architecture    | Microservices-based Architecture     | The application uses a microservices architecture for modular development.                           | Microservices introduce complexity in terms of deployment, monitoring, and inter-service communication. This could lead to technical debt in managing a larger number of services and ensuring their seamless interaction.                           |
+| API Integration               | Third-party APIs                      | The application integrates with various third-party APIs for additional functionalities.             | Third-party API changes or deprecations can lead to unexpected failures or the need for frequent updates, creating technical debt.                                                               |
+| Responsive Design             | Responsive Web Design Technologies   | The application is designed to be responsive across various devices.                                  | Continuous updates and testing across multiple devices and screen sizes can lead to technical debt, especially if new devices with different resolutions and aspect ratios are released.                                  |
+| Scalability Concerns          | Scalable Cloud Infrastructure         | The application is expected to scale based on user demand.                                            | Improper handling of scalability can lead to performance bottlenecks. Over-reliance on auto-scaling features can increase operational costs unexpectedly.                                        |
+| Student Information System    | Existing University Information System| Our application will integrate with the existing information system.                                  | The information system has security vulnerabilities and is not yet compliant with current privacy regulations.                                                                                 |
+| Financial Management System   | Financial Management System API       | Our application will integrate with the existing financial management system.                         | The financial management system offers an API, however, there is no current documentation available.                                                                                           |
+| Cloud Deployment              | Amazon Web Services (AWS)             | Our application will be deployed on AWS.                                                              | This introduces vendor buy-in which could cause technical debt in the future.                                                                                                                   |
 
-**Contents**
-
-</div>
-
-A list of identified technical risks or technical debts, ordered by
-priority
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-“Risk management is project management for grown-ups” (Tim Lister,
-Atlantic Systems Guild.)
-
-This should be your motto for systematic detection and evaluation of
-risks and technical debts in the architecture, which will be needed by
-management stakeholders (e.g. project managers, product owners) as part
-of the overall risk analysis and measurement planning.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-List of risks and/or technical debts, probably including suggested
-measures to minimize, mitigate or avoid risks or reduce technical debts.
-
-See [Risks and Technical Debt](https://docs.arc42.org/section-11/) in
-the arc42 documentation.
 
 <div style="page-break-after: always;"></div>
 
