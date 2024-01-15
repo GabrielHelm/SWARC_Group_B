@@ -132,496 +132,104 @@ faculty members and professors.
 | *Data security and integrity*                    | *Secure Communication Protocols (HTTPS)*     | **      |
 | *Quality assurance*                              | *Automated Testing and CI/CD*                | **      |
 
-# Building Block View
+# 5. Building Block View
 
 <div class="formalpara-title">
+This overview visualizes the most important components and their dependencies of the application as black boxes:
 
-**Content**
+<div style="margin:25px;">
+
+![Diagram showing the Building Block View Level-1.](images\5_building_block_lvl1.png "Building Block View Level-1")
 
 </div>
 
-The building block view shows the static decomposition of the system
-into building blocks (modules, components, subsystems, classes,
-interfaces, packages, libraries, frameworks, layers, partitions, tiers,
-functions, macros, operations, data structures, …) as well as their
-dependencies (relationships, associations, …)
+**Motivation**  
+The building block overview (level 1) is based on the decomposition of the application in self-contained subsystems that are each focused on specific business functionalities. Additionally, the relationships with users (students and administrators) and external systems (student information system and financial system) are represented.  
 
-This view is mandatory for every architecture documentation. In analogy
-to a house this is the *floor plan*.
 
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Maintain an overview of your source code by making its structure
-understandable through abstraction.
-
-This allows you to communicate with your stakeholder on an abstract
-level without disclosing implementation details.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-The building block view is a hierarchical collection of black boxes and
-white boxes (see figure below) and their descriptions.
-
-![Hierarchy of building blocks](images/05_building_blocks-EN.png)
-
-**Level 1** is the white box description of the overall system together
-with black box descriptions of all contained building blocks.
-
-**Level 2** zooms into some building blocks of level 1. Thus it contains
-the white box description of selected building blocks of level 1,
-together with black box descriptions of their internal building blocks.
-
-**Level 3** zooms into selected building blocks of level 2, and so on.
-
-See [Building Block View](https://docs.arc42.org/section-5/) in the
-arc42 documentation.
-
-## Whitebox Overall System
-
-Here you describe the decomposition of the overall system using the
-following white box template. It contains
-
--   an overview diagram
-
--   a motivation for the decomposition
-
--   black box descriptions of the contained building blocks. For these
-    we offer you alternatives:
-
-    -   use *one* table for a short and pragmatic overview of all
-        contained building blocks and their interfaces
-
-    -   use a list of black box descriptions of the building blocks
-        according to the black box template (see below). Depending on
-        your choice of tool this list could be sub-chapters (in text
-        files), sub-pages (in a Wiki) or nested elements (in a modeling
-        tool).
-
--   (optional:) important interfaces, that are not explained in the
-    black box templates of a building block, but are very important for
-    understanding the white box. Since there are so many ways to specify
-    interfaces why do not provide a specific template for them. In the
-    worst case you have to specify and describe syntax, semantics,
-    protocols, error handling, restrictions, versions, qualities,
-    necessary compatibilities and many things more. In the best case you
-    will get away with examples or simple signatures.
-
-***\<Overview Diagram>***
-
-Motivation  
-*\<text explanation>*
-
-Contained Building Blocks  
-*\<Description of contained building block (black boxes)>*
-
-Important Interfaces  
-*\<Description of important interfaces>*
-
-Insert your explanations of black boxes from level 1:
-
-If you use tabular form you will only describe your black boxes with
-name and responsibility according to the following schema:
+**Contained Building Blocks**  
+This table describes the black boxes from level 1:
 
 | **Name**         | **Responsibility** |
 |------------------|--------------------|
-| *\<black box 1>* |  *\<Text>*         |
-| *\<black box 2>* |  *\<Text>*         |
+| **Web Server** |  Handling client requests and delivering content.         |
+| **Core Component** |  Connecting and coordinating services.         |
+| **Timetable Service** |  Management of timetables.         |
+| **Course Service** |  Management of courses.         |
+| **Grade Service** |  Management of grades.         |
+| **Database** |  Persistent storage of data.         |
+| **Directory Server** |  Storing user information and validating actions.         |      |
 
-If you use a list of black box descriptions then you fill in a separate
-black box template for every important building block . Its headline is
-the name of the black box.
+**Important Interfaces**  
+AcademiX depends on and integrates with two external systems: the student information system and the financial system. Interactions with these systems are described by and must follow the respective specification.    
 
-### \<Name black box 1>
+# 6. Runtime View
+This section describes concrete behavior and interactions of the
+system’s building blocks in form of scenarios.
 
-Here you describe \<black box 1> according the the following black box
-template:
+## Runtime Scenario 1: Generate grade report
 
--   Purpose/Responsibility
+<div style="margin:25px;">
 
--   Interface(s), when they are not extracted as separate paragraphs.
-    This interfaces may include qualities and performance
-    characteristics.
+![Diagram showing sequence of events when student requests report.](images\6_runtime_view_report_sequence.png "Runtime View Scenario 1")
 
--   (Optional) Quality-/Performance characteristics of the black box,
-    e.g.availability, run time behavior, ….
+</div>
 
--   (Optional) directory/file location
-
--   (Optional) Fulfilled requirements (if you need traceability to
-    requirements).
-
--   (Optional) Open issues/problems/risks
-
-*\<Purpose/Responsibility>*
-
-*\<Interface(s)>*
-
-*\<(Optional) Quality/Performance Characteristics>*
-
-*\<(Optional) Directory/File Location>*
-
-*\<(Optional) Fulfilled Requirements>*
-
-*\<(optional) Open Issues/Problems/Risks>*
-
-### \<Name black box 2>
-
-*\<black box template>*
-
-### \<Name black box n>
-
-*\<black box template>*
-
-### \<Name interface 1>
-
-…
-
-### \<Name interface m>
-
-## Level 2
-
-Here you can specify the inner structure of (some) building blocks from
-level 1 as white boxes.
-
-You have to decide which building blocks of your system are important
-enough to justify such a detailed description. Please prefer relevance
-over completeness. Specify important, surprising, risky, complex or
-volatile building blocks. Leave out normal, simple, boring or
-standardized parts of your system
-
-### White Box *\<building block 1>*
-
-…describes the internal structure of *building block 1*.
-
-*\<white box template>*
-
-### White Box *\<building block 2>*
-
-*\<white box template>*
-
-…
-
-### White Box *\<building block m>*
-
-*\<white box template>*
-
-## Level 3
-
-Here you can specify the inner structure of (some) building blocks from
-level 2 as white boxes.
-
-When you need more detailed levels of your architecture please copy this
-part of arc42 for additional levels.
-
-### White Box \<\_building block x.1\_\>
-
-Specifies the internal structure of *building block x.1*.
-
-*\<white box template>*
-
-### White Box \<\_building block x.2\_\>
-
-*\<white box template>*
-
-### White Box \<\_building block y.1\_\>
-
-*\<white box template>*
+**Description**
 
 <div style="page-break-after: always;"></div>
 
-# Runtime View
+# 7. Deployment View
 
-<div class="formalpara-title">
+This section describes the technical infrastructure used to execute the system and the mapping of software components to those infrastructure elements.
 
-**Contents**
+**Infrastructure Level 1**  
+This is a description of the top-level infrastructure in the system:
 
-</div>
+<div style="margin:25px;">
 
-The runtime view describes concrete behavior and interactions of the
-system’s building blocks in form of scenarios from the following areas:
-
--   important use cases or features: how do building blocks execute
-    them?
-
--   interactions at critical external interfaces: how do building blocks
-    cooperate with users and neighboring systems?
-
--   operation and administration: launch, start-up, stop
-
--   error and exception scenarios
-
-Remark: The main criterion for the choice of possible scenarios
-(sequences, workflows) is their **architectural relevance**. It is
-**not** important to describe a large number of scenarios. You should
-rather document a representative selection.
-
-<div class="formalpara-title">
-
-**Motivation**
+![Diagram showing top-level infrastructure elements.](images\7_deployment_view_lvl1.png "Deployment View Level 1")
 
 </div>
 
-You should understand how (instances of) building blocks of your system
-perform their job and communicate at runtime. You will mainly capture
-scenarios in your documentation to communicate your architecture to
-stakeholders that are less willing or able to read and understand the
-static models (building block view, deployment view).
+**Motivation**  
+The diagram shows the different hardware devices that execute the distributed application. This overview represents the top-level infrastructure in the system and serves as a guide to all the system's part.  
 
-<div class="formalpara-title">
+**Quality and/or Performance Features**  
+The entire system utilizes virtualized devices which is enabled by the AWS Infrastructure as a Service. 
 
-**Form**
+**Mapping of Building Blocks to Infrastructure**  
+The following table represents a mapping of the level 1 infrastructure units to software components:
 
-</div>
-
-There are many notations for describing scenarios, e.g.
-
--   numbered list of steps (in natural language)
-
--   activity diagrams or flow charts
-
--   sequence diagrams
-
--   BPMN or EPCs (event process chains)
-
--   state machines
-
--   …
-
-See [Runtime View](https://docs.arc42.org/section-6/) in the arc42
-documentation.
-
-## \<Runtime Scenario 1>
-
--   *\<insert runtime diagram or textual description of the scenario>*
-
--   *\<insert description of the notable aspects of the interactions
-    between the building block instances depicted in this diagram.>*
-
-## \<Runtime Scenario 2>
-
-## …
-
-## \<Runtime Scenario n>
+| **Node**         | **Artifact** | **Description** |
+|------------------|--------------------|--------------------|
+| Browser                    | None |Recent version of Chrome, Firefox, Safari, etc. |
+| Web Server                 | Nginx |Handles client requests and serves content |
+| Directory Server           | OpenLDAP |Stores user information and validates actions |
+| App Core                   | academix-core.jar |Central application component  |
+| DB Server                  | MongoDB |Persistent NoSQL storage |
+| Timetable Service          | academix-timetable.jar |Microservice for timetable management |
+| Course Service             | academix-course.jar |Microservice for course management |
+| Grade Service              | academix-grade.jar |Microservice for grade management |
+| Student Information Access | Interface to external service |Transforms incoming/outgoing data to specific format|
+| Financial Access           | Interface to external service |Transforms incoming/outgoing data to specific format |
 
 <div style="page-break-after: always;"></div>
 
-# Deployment View
+# 8. Cross-cutting Concepts
 
-<div class="formalpara-title">
+The following section describes aspects of the application that affect multiple components and can, therefore, not be associated with individual modules.
 
-**Content**
+**Concept 1: Logging**  
+All components of the application must log events using the same pattern. The production environment is required to log at the level "INFO" and beyond. These logs must be managed by a monitoring system and events with serious consequences must notify relevant staff members. 
 
-</div>
 
-The deployment view describes:
+**Concept 2: Synchronization**  
+The application mediates between users (students and staff) and an external information source (the student information system).  
+The database is required to be consistent with the information received by the student information system and changes to relevant information received from users (e.g.: personal information change by student) must be relayed to the external system.
 
-1.  technical infrastructure used to execute your system, with
-    infrastructure elements like geographical locations, environments,
-    computers, processors, channels and net topologies as well as other
-    infrastructure elements and
-
-2.  mapping of (software) building blocks to that infrastructure
-    elements.
-
-Often systems are executed in different environments, e.g. development
-environment, test environment, production environment. In such cases you
-should document all relevant environments.
-
-Especially document a deployment view if your software is executed as
-distributed system with more than one computer, processor, server or
-container or when you design and construct your own hardware processors
-and chips.
-
-From a software perspective it is sufficient to capture only those
-elements of an infrastructure that are needed to show a deployment of
-your building blocks. Hardware architects can go beyond that and
-describe an infrastructure to any level of detail they need to capture.
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Software does not run without hardware. This underlying infrastructure
-can and will influence a system and/or some cross-cutting concepts.
-Therefore, there is a need to know the infrastructure.
-
-Maybe a highest level deployment diagram is already contained in section
-3.2. as technical context with your own infrastructure as ONE black box.
-In this section one can zoom into this black box using additional
-deployment diagrams:
-
--   UML offers deployment diagrams to express that view. Use it,
-    probably with nested diagrams, when your infrastructure is more
-    complex.
-
--   When your (hardware) stakeholders prefer other kinds of diagrams
-    rather than a deployment diagram, let them use any kind that is able
-    to show nodes and channels of the infrastructure.
-
-See [Deployment View](https://docs.arc42.org/section-7/) in the arc42
-documentation.
-
-## Infrastructure Level 1
-
-Describe (usually in a combination of diagrams, tables, and text):
-
--   distribution of a system to multiple locations, environments,
-    computers, processors, .., as well as physical connections between
-    them
-
--   important justifications or motivations for this deployment
-    structure
-
--   quality and/or performance features of this infrastructure
-
--   mapping of software artifacts to elements of this infrastructure
-
-For multiple environments or alternative deployments please copy and
-adapt this section of arc42 for all relevant environments.
-
-***\<Overview Diagram>***
-
-Motivation  
-*\<explanation in text form>*
-
-Quality and/or Performance Features  
-*\<explanation in text form>*
-
-Mapping of Building Blocks to Infrastructure  
-*\<description of the mapping>*
-
-## Infrastructure Level 2
-
-Here you can include the internal structure of (some) infrastructure
-elements from level 1.
-
-Please copy the structure from level 1 for each selected element.
-
-### *\<Infrastructure Element 1>*
-
-*\<diagram + explanation>*
-
-### *\<Infrastructure Element 2>*
-
-*\<diagram + explanation>*
-
-…
-
-### *\<Infrastructure Element n>*
-
-*\<diagram + explanation>*
-
-<div style="page-break-after: always;"></div>
-
-# Cross-cutting Concepts
-
-<div class="formalpara-title">
-
-**Content**
-
-</div>
-
-This section describes overall, principal regulations and solution ideas
-that are relevant in multiple parts (= cross-cutting) of your system.
-Such concepts are often related to multiple building blocks. They can
-include many different topics, such as
-
--   models, especially domain models
-
--   architecture or design patterns
-
--   rules for using specific technology
-
--   principal, often technical decisions of an overarching (=
-    cross-cutting) nature
-
--   implementation rules
-
-<div class="formalpara-title">
-
-**Motivation**
-
-</div>
-
-Concepts form the basis for *conceptual integrity* (consistency,
-homogeneity) of the architecture. Thus, they are an important
-contribution to achieve inner qualities of your system.
-
-Some of these concepts cannot be assigned to individual building blocks,
-e.g. security or safety.
-
-<div class="formalpara-title">
-
-**Form**
-
-</div>
-
-The form can be varied:
-
--   concept papers with any kind of structure
-
--   cross-cutting model excerpts or scenarios using notations of the
-    architecture views
-
--   sample implementations, especially for technical concepts
-
--   reference to typical usage of standard frameworks (e.g. using
-    Hibernate for object/relational mapping)
-
-<div class="formalpara-title">
-
-**Structure**
-
-</div>
-
-A potential (but not mandatory) structure for this section could be:
-
--   Domain concepts
-
--   User Experience concepts (UX)
-
--   Safety and security concepts
-
--   Architecture and design patterns
-
--   "Under-the-hood"
-
--   development concepts
-
--   operational concepts
-
-Note: it might be difficult to assign individual concepts to one
-specific topic on this list.
-
-![Possible topics for crosscutting
-concepts](images/08-Crosscutting-Concepts-Structure-EN.png)
-
-See [Concepts](https://docs.arc42.org/section-8/) in the arc42
-documentation.
-
-## *\<Concept 1>*
-
-*\<explanation>*
-
-## *\<Concept 2>*
-
-*\<explanation>*
-
-…
-
-## *\<Concept n>*
-
-*\<explanation>*
+**Concept 3: Privacy and Compliance**  
+The application must be compliant with relevant legal obligations, especially concerning privacy. This includes the General Data Protection Regulation as well as University bylaws.
 
 <div style="page-break-after: always;"></div>
 
