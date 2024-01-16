@@ -271,9 +271,13 @@ In the development of the University Management Application, several key archite
 
 ## Quality Tree
 
+The Quality Tree provides a visual representation of the quality goals for the AcademiX university management application. It outlines the primary quality attributes in a hierarchical structure, emphasizing the relationships and priorities among different quality goals. This approach helps the development team focus on critical quality aspects, aligning their work with the application's key objectives.
+
 ![Diagram showing high-level overview of the quality goals and requirements.](../materials/images/10_quality_tree.png "Quality Tree")
 
 ## Quality Scenarios
+
+The Quality Scenarios section details specific conditions and situations to test the AcademiX application against its quality goals. These scenarios, simulating real-world challenges, define goals, stimuli sources, stimuli, environments, and desired responses. They are instrumental in evaluating the system's performance, security, usability, and reliability under various operational conditions.
 
 | Goal                         | Source of Stimulus        | Stimulus                                | Environment                         | Response Measure                                                        |
 |------------------------------|---------------------------|-----------------------------------------|-------------------------------------|-------------------------------------------------------------------------|
@@ -292,6 +296,8 @@ In the development of the University Management Application, several key archite
 <div style="page-break-after: always;"></div>
 
 # 11. Risks and Technical Debts
+
+This section highlights potential risks and sources of technical debt in the development and operation of the AcademiX application. It identifies key components and dependencies at risk, providing a basis for proactive mitigation and planning. Early recognition and management of these elements are crucial for maintaining the application's long-term efficiency and adaptability.
 
 | Component                     | Dependency                            | Description                                                                                           | Technical Debt                                                                                                                                                                                 |
 |-------------------------------|---------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -317,11 +323,7 @@ In the development of the University Management Application, several key archite
 
 </div>
 
-The most important domain and technical terms that your stakeholders use
-when discussing the system.
-
-You can also see the glossary as source for translations if you work in
-multi-language teams.
+The glossary section includes key domain-specific and technical terms used in the context of the AcademiX university management application. This ensures a consistent understanding among stakeholders.
 
 <div class="formalpara-title">
 
@@ -329,20 +331,19 @@ multi-language teams.
 
 </div>
 
-You should clearly define your terms, so that all stakeholders
+Defining these terms is essential to maintain clarity and prevent misunderstandings due to the use of synonyms or homonyms, especially in a multi-language or diverse team environment.
 
--   have an identical understanding of these terms
-
--   do not use synonyms and homonyms
-
-A table with columns \<Term> and \<Definition>.
-
-Potentially more columns in case you need translations.
-
-See [Glossary](https://docs.arc42.org/section-12/) in the arc42
-documentation.
-
-| Term        | Definition        |
-|-------------|-------------------|
-| *\<Term-1>* | *\<definition-1>* |
-| *\<Term-2>* | *\<definition-2>* |
+| Term                           | Definition                                                                                       |
+|--------------------------------|--------------------------------------------------------------------------------------------------|
+| AcademiX                       | The university management application described in this document.                                |
+| API                            | Application Programming Interface - a set of protocols for building and interacting with software applications. |
+| AWS                            | Amazon Web Services - a cloud computing platform used for hosting AcademiX.                      |
+| CI/CD                          | Continuous Integration/Continuous Deployment - a method to frequently integrate and deploy code changes. |
+| GDPR                           | General Data Protection Regulation - EU legislation for data protection and privacy.              |
+| LDAP                           | Lightweight Directory Access Protocol - used for accessing and maintaining distributed directory information services. |
+| MongoDB                        | A NoSQL database program, used as the primary database for AcademiX.                              |
+| Node.js                        | A JavaScript runtime environment that executes JavaScript code outside of a web browser.         |
+| React                          | A JavaScript library for building user interfaces, used for front-end development of AcademiX.  |
+| SQL Injection                  | A code injection technique used to attack data-driven applications by inserting malicious SQL statements into a database query. |
+| Usability                      | The ease of use and learnability of a human-made object such as software or a tool.              |
+| WCAG 2.1                       | Web Content Accessibility Guidelines
