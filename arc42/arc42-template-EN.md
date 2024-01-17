@@ -1,31 +1,19 @@
-# 
+# AcademiX - University Management 
 
-**About arc42**
+AcademiX is a fictional University Management application and this document serves as documentation and is based on the arc42 template.
+See <https://arc42.org> for detailed information.
 
-<div style="color:red;">
-
-*TODO: change this generic header and add information about our scenario*
-
-</div>
-
-arc42, the template for documentation of software and system
-architecture.
-
-Template Version 8.2 EN. (based upon AsciiDoc version), January 2023
-
-Created, maintained and © by Dr. Peter Hruschka, Dr. Gernot Starke and
-contributors. See <https://arc42.org>.
-
-<div class="note">
-
-This version of the template contains some help and explanations. It is
-used for familiarization with arc42 and the understanding of the
-concepts. For documentation of your own system you use better the
-*plain* version.
-
-</div>
-
-<div style="page-break-after: always;"></div>
+This documentation was created for the FH Technikum course SWARC (Aktuelle Themen der Informatik: Softwarearchitekturen) and is based on the following assumptions:
+- An application for university management is to be developed
+- The team represents software architects from a regional technology company
+- Provided were the following documents describing our scenario:
+  - [Use Case Document](../materials/university%20managment/use%20case%20document.md)
+  - [Lecturer Interview](../materials/university%20managment/lecturer%20interview.md)
+  - [Business Requirements Document (BRD)](../materials/university%20managment/brd.md)
+- List of authors:
+  - Gabriel Helm
+  - Gerrit Kreuzer
+  - Peter Pichler
 
 # 1. Introduction and Goals
 
@@ -36,8 +24,6 @@ The application will integrate with the university's existing student
 information system and financial management system.
 
 ## Requirements Overview
-
-<div class="formalpara-title">
 
 **Main features ([Business Requirements Document: Section 4. Features](../materials/university%20managment/brd.md))**
 - User authentication and authorization
@@ -89,8 +75,6 @@ The stakeholders have been taken from [Business Requirements Document: Section 6
 
 # 2. Architecture Constraints
 
-<div class="formalpara-title">
-
 AcademiX shall be:
 - platform-independent and should be accessible from all common web browsers (e.g. Chrome, Safari, Edge, Firefox and Samsung Internet), Android and iOS devices
 - developed using modern web development technologies such as React, Node.js, and MongoDB
@@ -140,7 +124,6 @@ faculty members and professors.
 
 # 5. Building Block View
 
-<div class="formalpara-title">
 This overview visualizes the most important components and their dependencies of the application as black boxes:
 
 <div style="margin:25px;">
@@ -332,23 +315,14 @@ This section highlights potential risks and sources of technical debt in the dev
 
 
 <div style="page-break-after: always;"></div>
-
 # 12. Glossary
-
-<div class="formalpara-title">
 
 **Contents**
 
-</div>
-
 The glossary section includes key domain-specific and technical terms used in the context of the AcademiX university management application. This ensures a consistent understanding among stakeholders.
-
-<div class="formalpara-title">
 
 **Motivation**
 
-</div>
-</div>
 Defining these terms is essential to maintain clarity and prevent misunderstandings due to the use of synonyms or homonyms, especially in a multi-language or diverse team environment.
 
 | Term          | Definition                                                                                                                      |
