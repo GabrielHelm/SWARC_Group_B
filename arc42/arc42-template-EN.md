@@ -132,10 +132,10 @@ faculty members and professors.
 | Goal/Requirements                                | Architectural Approach                       | Details                                                       |
 |--------------------------------------------------|----------------------------------------------|---------------------------------------------------------------|
 | *Authenticate and authorize users*               | *Dedicated server (LDAP)*                    | *[Technology Stack Selection](#technology-stack-selection)*   |
-| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | **                                                            |
+| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | *[Runtime View](#runtime-view)*                               |
 | *Dashboard with relevant information and alerts* | *Web-app (React framework)*                  | *[Technology Stack Selection](#technology-stack-selection)*   |
 | *Rapid scalability*                              | *Cloud Hosting (AWS)*                        | *[Cloud-Based Infrastructure](#cloud-based-infrastructure)*   |
-| *Data security and integrity*                    | *Secure Communication Protocols (HTTPS)*     | -                                                             |
+| *Data security and integrity*                    | *Secure Communication Protocols (HTTPS)*     |                                                               |
 | *Quality assurance*                              | *Automated Testing and CI/CD*                | *[Automated Testing and CI/CD](#automated-testing-and-ci/cd)* |
 
 # 5. Building Block View
@@ -156,15 +156,15 @@ The building block overview (level 1) is based on the decomposition of the appli
 **Contained Building Blocks**  
 This table describes the black boxes from level 1:
 
-| **Name**         | **Responsibility** |
-|------------------|--------------------|
-| **Web Server** |  Handling client requests and delivering content.         |
-| **Core Component** |  Connecting and coordinating services.         |
-| **Timetable Service** |  Management of timetables.         |
-| **Course Service** |  Management of courses.         |
-| **Grade Service** |  Management of grades.         |
-| **Database** |  Persistent storage of data.         |
-| **Directory Server** |  Storing user information and validating actions.         |      |
+| **Name**              | **Responsibility**                                |
+|-----------------------|---------------------------------------------------|
+| **Web Server**        |  Handling client requests and delivering content. |
+| **Core Component**    |  Connecting and coordinating services.            |
+| **Timetable Service** |  Management of timetables.                        |
+| **Course Service**    |  Management of courses.                           |
+| **Grade Service**     |  Management of grades.                            |
+| **Database**          |  Persistent storage of data.                      |
+| **Directory Server**  |  Storing user information and validating actions. |      |
 
 **Important Interfaces**  
 AcademiX depends on and integrates with two external systems: the student information system and the financial system. Interactions with these systems are described by and must follow the respective specification.    
@@ -221,18 +221,18 @@ The entire system utilizes virtualized devices which is enabled by the AWS Infra
 **Mapping of Building Blocks to Infrastructure**  
 The following table represents a mapping of the level 1 infrastructure units to software components:
 
-| **Node**         | **Artifact** | **Description** |
-|------------------|--------------------|--------------------|
-| Browser                    | None |Recent version of Chrome, Firefox, Safari, etc. |
-| Web Server                 | Nginx |Handles client requests and serves content |
-| Directory Server           | OpenLDAP |Stores user information and validates actions |
-| App Core                   | academix-core.jar |Central application component  |
-| DB Server                  | MongoDB |Persistent NoSQL storage |
-| Timetable Service          | academix-timetable.jar |Microservice for timetable management |
-| Course Service             | academix-course.jar |Microservice for course management |
-| Grade Service              | academix-grade.jar |Microservice for grade management |
-| Student Information Access | Interface to external service |Transforms incoming/outgoing data to specific format|
-| Financial Access           | Interface to external service |Transforms incoming/outgoing data to specific format |
+| **Node**                   | **Artifact**                  | **Description**                                      |
+|----------------------------|-------------------------------|------------------------------------------------------|
+| Browser                    | None                          | Recent version of Chrome, Firefox, Safari, etc.      |
+| Web Server                 | Nginx                         | Handles client requests and serves content           |
+| Directory Server           | OpenLDAP                      | Stores user information and validates actions        |
+| App Core                   | academix-core.jar             | Central application component                        |
+| DB Server                  | MongoDB                       | Persistent NoSQL storage                             |
+| Timetable Service          | academix-timetable.jar        | Microservice for timetable management                |
+| Course Service             | academix-course.jar           | Microservice for course management                   |
+| Grade Service              | academix-grade.jar            | Microservice for grade management                    |
+| Student Information Access | Interface to external service | Transforms incoming/outgoing data to specific format |
+| Financial Access           | Interface to external service | Transforms incoming/outgoing data to specific format |
 
 <div style="page-break-after: always;"></div>
 
@@ -262,24 +262,25 @@ In the development of the University Management Application, several key archite
 - **Front-End Development**: React has been chosen for its component-based architecture, enhancing the responsiveness and scalability of the user interface.
 - **Back-End Development**: Node.js is selected for its non-blocking I/O model, ensuring efficient handling of concurrent user requests.
 - **Data Storage**: MongoDB, a NoSQL database, is chosen for its flexibility in handling diverse data types and scalability.
+- **Authentication and Authorization**: LDAP is selected for its hierarchical structure, lightweight footprint and scalability.
 
 ## Cloud-Based Infrastructure
-- The application will be deployed on AWS, supporting scalability, high availability, and robust security features essential for protecting sensitive educational data.
+The application will be deployed on AWS, supporting scalability, high availability, and robust security features essential for protecting sensitive educational data.
 
 ## Microservices Architecture
-- Adopting a microservices architecture enhances scalability and maintainability. It allows individual modules like Student Management and Course Management to be developed, deployed, and scaled independently.
+Adopting a microservices architecture enhances scalability and maintainability. It allows individual modules like Student Management and Course Management to be developed, deployed, and scaled independently.
 
 ## API-First Approach
-- An API-first design facilitates integration with existing systems like the Student Information System and Financial Management System, ensuring seamless data exchange and integration with third-party services.
+An API-first design facilitates integration with existing systems like the Student Information System and Financial Management System, ensuring seamless data exchange and integration with third-party services.
 
 ## Responsive Web Design
-- To accommodate the diverse range of devices used by students and faculty, the application is designed to be responsive across desktops, tablets, and mobile devices.
+To accommodate the diverse range of devices used by students and faculty, the application is designed to be responsive across desktops, tablets, and mobile devices.
 
 ## Scalable Reporting and Analytics Module
-- The architecture includes a scalable solution for reporting and analytics, capable of handling large volumes of data and providing real-time insights.
+The architecture includes a scalable solution for reporting and analytics, capable of handling large volumes of data and providing real-time insights.
 
 ## Automated Testing and CI/CD
-- The project incorporates automated testing and CI/CD pipelines to maintain high code quality, streamline the development process, and reduce the risk of bugs or downtime.
+The project incorporates automated testing and CI/CD pipelines to maintain high code quality, streamline the development process, and reduce the risk of bugs or downtime.
 
 <div style="page-break-after: always;"></div>
 
@@ -315,18 +316,18 @@ The Quality Scenarios section details specific conditions and situations to test
 
 This section highlights potential risks and sources of technical debt in the development and operation of the AcademiX application. It identifies key components and dependencies at risk, providing a basis for proactive mitigation and planning. Early recognition and management of these elements are crucial for maintaining the application's long-term efficiency and adaptability.
 
-| Component                     | Dependency                            | Description                                                                                           | Technical Debt                                                                                                                                                                                 |
-|-------------------------------|---------------------------------------|-------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| Front-End Framework           | React Library                         | The application's front end is developed using React.                                                 | React's frequent updates may require regular refactoring of the codebase to stay up-to-date. This can lead to technical debt if not managed properly.                                           |
-| Back-End Technology           | Node.js Runtime Environment           | Node.js is used for the backend services.                                                             | Node.js, being single-threaded, might struggle under heavy computational tasks, leading to potential performance issues. Additionally, the asynchronous nature of Node.js can lead to callback hell if not handled with modern practices like async/await. |
-| Database System               | MongoDB NoSQL Database                | MongoDB is used as the primary database.                                                              | The NoSQL nature of MongoDB may lead to challenges in data consistency and integrity, especially in complex transaction scenarios. There might be a need for additional handling to ensure ACID properties.                                           |
-| Microservices Architecture    | Microservices-based Architecture     | The application uses a microservices architecture for modular development.                           | Microservices introduce complexity in terms of deployment, monitoring, and inter-service communication. This could lead to technical debt in managing a larger number of services and ensuring their seamless interaction.                           |
-| API Integration               | Third-party APIs                      | The application integrates with various third-party APIs for additional functionalities.             | Third-party API changes or deprecations can lead to unexpected failures or the need for frequent updates, creating technical debt.                                                               |
-| Responsive Design             | Responsive Web Design Technologies   | The application is designed to be responsive across various devices.                                  | Continuous updates and testing across multiple devices and screen sizes can lead to technical debt, especially if new devices with different resolutions and aspect ratios are released.                                  |
-| Scalability Concerns          | Scalable Cloud Infrastructure         | The application is expected to scale based on user demand.                                            | Improper handling of scalability can lead to performance bottlenecks. Over-reliance on auto-scaling features can increase operational costs unexpectedly.                                        |
-| Student Information System    | Existing University Information System| Our application will integrate with the existing information system.                                  | The information system has security vulnerabilities and is not yet compliant with current privacy regulations.                                                                                 |
-| Financial Management System   | Financial Management System API       | Our application will integrate with the existing financial management system.                         | The financial management system offers an API, however, there is no current documentation available.                                                                                           |
-| Cloud Deployment              | Amazon Web Services (AWS)             | Our application will be deployed on AWS.                                                              | This introduces vendor buy-in which could cause technical debt in the future.                                                                                                                   |
+| Component                   | Dependency                             | Description                                                                              | Technical Debt                                                                                                                                                                                                                                             |
+|-----------------------------|----------------------------------------|------------------------------------------------------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Front-End Framework         | React Library                          | The application's front end is developed using React.                                    | React's frequent updates may require regular refactoring of the codebase to stay up-to-date. This can lead to technical debt if not managed properly.                                                                                                      |
+| Back-End Technology         | Node.js Runtime Environment            | Node.js is used for the backend services.                                                | Node.js, being single-threaded, might struggle under heavy computational tasks, leading to potential performance issues. Additionally, the asynchronous nature of Node.js can lead to callback hell if not handled with modern practices like async/await. |
+| Database System             | MongoDB NoSQL Database                 | MongoDB is used as the primary database.                                                 | The NoSQL nature of MongoDB may lead to challenges in data consistency and integrity, especially in complex transaction scenarios. There might be a need for additional handling to ensure ACID properties.                                                |
+| Microservices Architecture  | Microservices-based Architecture       | The application uses a microservices architecture for modular development.               | Microservices introduce complexity in terms of deployment, monitoring, and inter-service communication. This could lead to technical debt in managing a larger number of services and ensuring their seamless interaction.                                 |
+| API Integration             | Third-party APIs                       | The application integrates with various third-party APIs for additional functionalities. | Third-party API changes or deprecations can lead to unexpected failures or the need for frequent updates, creating technical debt.                                                                                                                         |
+| Responsive Design           | Responsive Web Design Technologies     | The application is designed to be responsive across various devices.                     | Continuous updates and testing across multiple devices and screen sizes can lead to technical debt, especially if new devices with different resolutions and aspect ratios are released.                                                                   |
+| Scalability Concerns        | Scalable Cloud Infrastructure          | The application is expected to scale based on user demand.                               | Improper handling of scalability can lead to performance bottlenecks. Over-reliance on auto-scaling features can increase operational costs unexpectedly.                                                                                                  |
+| Student Information System  | Existing University Information System | Our application will integrate with the existing information system.                     | The information system has security vulnerabilities and is not yet compliant with current privacy regulations.                                                                                                                                             |
+| Financial Management System | Financial Management System API        | Our application will integrate with the existing financial management system.            | The financial management system offers an API, however, there is no current documentation available.                                                                                                                                                       |
+| Cloud Deployment            | Amazon Web Services (AWS)              | Our application will be deployed on AWS.                                                 | This introduces vendor buy-in which could cause technical debt in the future.                                                                                                                                                                              |
 
 
 <div style="page-break-after: always;"></div>
@@ -349,17 +350,17 @@ The glossary section includes key domain-specific and technical terms used in th
 
 Defining these terms is essential to maintain clarity and prevent misunderstandings due to the use of synonyms or homonyms, especially in a multi-language or diverse team environment.
 
-| Term                           | Definition                                                                                       |
-|--------------------------------|--------------------------------------------------------------------------------------------------|
-| AcademiX                       | The university management application described in this document.                                |
-| API                            | Application Programming Interface - a set of protocols for building and interacting with software applications. |
-| AWS                            | Amazon Web Services - a cloud computing platform used for hosting AcademiX.                      |
-| CI/CD                          | Continuous Integration/Continuous Deployment - a method to frequently integrate and deploy code changes. |
-| GDPR                           | General Data Protection Regulation - EU legislation for data protection and privacy.              |
-| LDAP                           | Lightweight Directory Access Protocol - used for accessing and maintaining distributed directory information services. |
-| MongoDB                        | A NoSQL database program, used as the primary database for AcademiX.                              |
-| Node.js                        | A JavaScript runtime environment that executes JavaScript code outside of a web browser.         |
-| React                          | A JavaScript library for building user interfaces, used for front-end development of AcademiX.  |
-| SQL Injection                  | A code injection technique used to attack data-driven applications by inserting malicious SQL statements into a database query. |
-| Usability                      | The ease of use and learnability of a human-made object such as software or a tool.              |
-| WCAG 2.1                       | Web Content Accessibility Guidelines
+| Term          | Definition                                                                                                                      |
+|---------------|---------------------------------------------------------------------------------------------------------------------------------|
+| AcademiX      | The university management application described in this document.                                                               |
+| API           | Application Programming Interface - a set of protocols for building and interacting with software applications.                 |
+| AWS           | Amazon Web Services - a cloud computing platform used for hosting AcademiX.                                                     |
+| CI/CD         | Continuous Integration/Continuous Deployment - a method to frequently integrate and deploy code changes.                        |
+| GDPR          | General Data Protection Regulation - EU legislation for data protection and privacy.                                            |
+| LDAP          | Lightweight Directory Access Protocol - used for accessing and maintaining distributed directory information services.          |
+| MongoDB       | A NoSQL database program, used as the primary database for AcademiX.                                                            |
+| Node.js       | A JavaScript runtime environment that executes JavaScript code outside of a web browser.                                        |
+| React         | A JavaScript library for building user interfaces, used for front-end development of AcademiX.                                  |
+| SQL Injection | A code injection technique used to attack data-driven applications by inserting malicious SQL statements into a database query. |
+| Usability     | The ease of use and learnability of a human-made object such as software or a tool.                                             |
+| WCAG 2.1      | Web Content Accessibility Guidelines                                                                                            |
