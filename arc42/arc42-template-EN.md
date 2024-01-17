@@ -315,6 +315,7 @@ This section highlights potential risks and sources of technical debt in the dev
 
 
 <div style="page-break-after: always;"></div>
+
 # 12. Glossary
 
 **Contents**
