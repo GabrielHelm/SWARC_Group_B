@@ -172,15 +172,29 @@ AcademiX depends on and integrates with two external systems: the student inform
 This section describes concrete behavior and interactions of the
 system’s building blocks in form of scenarios.
 
-## Runtime Scenario 1: Generate grade report
+These scenarios are based on use cases described in the [Use Case Document](../materials/university%20managment/use%20case%20document.md). Refer to the linked document for additional scenarios and step-by-step descriptions.  
+
+## Runtime Scenario 1: Student Enrollment
 
 <div style="margin:25px;">
 
-![Diagram showing sequence of events when student requests report.](../materials/images/6_runtime_view_report_sequence.png "Runtime View Scenario 1")
+![Diagram showing sequence of events when student requests enrollment in course.](../materials/images/6_runtime_view_enrollment.png "Runtime View Scenario 1")
 
 </div>
 
-**Description**
+**Description**  
+The student enrolls in a course through the university management application.
+
+## Runtime Scenario 2: Course Grades Management
+
+<div style="margin:25px;">
+
+![Diagram showing sequence of events when staff manages course grades.](../materials/images/6_runtime_view_grading.png "Runtime View Scenario 2")
+
+</div>
+
+**Description**  
+The faculty member manages course grades for a class through the university management application.
 
 <div style="page-break-after: always;"></div>
 
@@ -226,12 +240,13 @@ The following table represents a mapping of the level 1 infrastructure units to 
 The following section describes aspects of the application that affect multiple components and can, therefore, not be associated with individual modules.
 
 **Concept 1: Logging**  
-All components of the application must log events using the same pattern. The production environment is required to log at the level "INFO" and beyond. These logs must be managed by a monitoring system and events with serious consequences must notify relevant staff members. 
+All components of the application must log events using the same pattern. The production environment is required to log at the level "INFO". These logs must be managed by a monitoring system and events with serious consequences must notify relevant staff members. 
 
 
 **Concept 2: Synchronization**  
 The application mediates between users (students and staff) and an external information source (the student information system).  
-The database is required to be consistent with the information received by the student information system and changes to relevant information received from users (e.g.: personal information change by student) must be relayed to the external system.
+The database is required to be consistent with the information received by the student information system and changes to relevant information received from users (e.g.: personal information change by student) must be relayed to the external system.  
+
 
 **Concept 3: Privacy and Compliance**  
 The application must be compliant with relevant legal obligations, especially concerning privacy. This includes the General Data Protection Regulation as well as University bylaws.
