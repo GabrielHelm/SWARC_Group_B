@@ -132,11 +132,11 @@ faculty members and professors.
 | Goal/Requirements                                | Architectural Approach                       | Details                                                       |
 |--------------------------------------------------|----------------------------------------------|---------------------------------------------------------------|
 | *Authenticate and authorize users*               | *Dedicated server (LDAP)*                    | *[Technology Stack Selection](#technology-stack-selection)*   |
-| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | *[Runtime View](#runtime-view)*                               |
+| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | *[Runtime View](#6.-runtime-view)*                            |
 | *Dashboard with relevant information and alerts* | *Web-app (React framework)*                  | *[Technology Stack Selection](#technology-stack-selection)*   |
 | *Rapid scalability*                              | *Cloud Hosting (AWS)*                        | *[Cloud-Based Infrastructure](#cloud-based-infrastructure)*   |
 | *Data security and integrity*                    | *Secure Communication Protocols (HTTPS)*     |                                                               |
-| *Quality assurance*                              | *Automated Testing and CI/CD*                | *[Automated Testing and CI/CD](#automated-testing-and-ci/cd)* |
+| *Quality assurance*                              | *Automated Testing and CI/CD*                | *[Automated Testing and CI/CD](#automated-testing-and-ci-cd)* |
 
 # 5. Building Block View
 
@@ -164,12 +164,13 @@ This table describes the black boxes from level 1:
 | **Course Service**    |  Management of courses.                           |
 | **Grade Service**     |  Management of grades.                            |
 | **Database**          |  Persistent storage of data.                      |
-| **Directory Server**  |  Storing user information and validating actions. |      |
+| **Directory Server**  |  Storing user information and validating actions. |     
 
 **Important Interfaces**  
 AcademiX depends on and integrates with two external systems: the student information system and the financial system. Interactions with these systems are described by and must follow the respective specification.    
 
 # 6. Runtime View
+
 This section describes concrete behavior and interactions of the
 system’s building blocks in form of scenarios.
 
@@ -279,7 +280,7 @@ To accommodate the diverse range of devices used by students and faculty, the ap
 ## Scalable Reporting and Analytics Module
 The architecture includes a scalable solution for reporting and analytics, capable of handling large volumes of data and providing real-time insights.
 
-## Automated Testing and CI/CD
+## Automated Testing and CI CD
 The project incorporates automated testing and CI/CD pipelines to maintain high code quality, streamline the development process, and reduce the risk of bugs or downtime.
 
 <div style="page-break-after: always;"></div>
@@ -347,7 +348,7 @@ The glossary section includes key domain-specific and technical terms used in th
 **Motivation**
 
 </div>
-
+</div>
 Defining these terms is essential to maintain clarity and prevent misunderstandings due to the use of synonyms or homonyms, especially in a multi-language or diverse team environment.
 
 | Term          | Definition                                                                                                                      |
