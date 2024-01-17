@@ -132,7 +132,7 @@ faculty members and professors.
 | Goal/Requirements                                | Architectural Approach                       | Details                                                       |
 |--------------------------------------------------|----------------------------------------------|---------------------------------------------------------------|
 | *Authenticate and authorize users*               | *Dedicated server (LDAP)*                    | *[Technology Stack Selection](#technology-stack-selection)*   |
-| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | *[Runtime View](#6.-runtime-view)*                            |
+| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | *[Runtime View](#6-runtime-view)*                             |
 | *Dashboard with relevant information and alerts* | *Web-app (React framework)*                  | *[Technology Stack Selection](#technology-stack-selection)*   |
 | *Rapid scalability*                              | *Cloud Hosting (AWS)*                        | *[Cloud-Based Infrastructure](#cloud-based-infrastructure)*   |
 | *Data security and integrity*                    | *Secure Communication Protocols (HTTPS)*     |                                                               |
