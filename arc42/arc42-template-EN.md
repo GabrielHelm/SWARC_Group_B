@@ -121,21 +121,22 @@ faculty members and professors.
 | Professors                    | Course content, grades, attendance records and feedback                         | Schedule updates, administrative reports, student performance data | Faculty portal, academic databases         | HTTPS             |
 | Faculty members               | Course information, financial data and timetable override information           | Enrollment reports, financial reports, timetable                   | Administrative dashboard                   | HTTPS             |
 | IT Administrator              | System updates, security patches, user feedback                                 | System status reports, performance metrics                         | IT management tools                        | HTTPS, SSH        |
-| External Educational Partners | Course data, enrollment information                                             | Joint program details, transfer credit information                 | Partner portals, data interchange services | API               |
-| Student Information System    | Student personal information                                                    | Student personal information                                       | Standardised interface to parse data       | API               |
-| Financial System              | Financial information                                                           | Financial information                                              | Standardised interface to parse data       | API               |
+| External Educational Partners | Course data, enrollment information                                             | Joint program details, transfer credit information                 | Partner portals, data interchange services | HTTPS, API        |
+| Student Information System    | Student personal information                                                    | Student personal information                                       | Standardised interface to parse data       | HTTPS, API        |
+| Financial System              | Financial information                                                           | Financial information                                              | Standardised interface to parse data       | HTTPS, API        |
 | Directory Server              | User data                                                                       | all object related data                                            | LDAP Interface for authentication          | LDAP              |
+| Database Server               | Data, SQL Queries                                                               | requested data                                                     | JDBC (Java Database Connectivity)          | TCP/IP            |
 
 # 4. Solution Strategy
 
-| Goal/Requirements                                | Architectural Approach                       | Details |
-|--------------------------------------------------|----------------------------------------------|---------|
-| *Authenticate and authorize users*               | *Dedicated server (LDAP)*                    | **      |
-| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | **      |
-| *Dashboard with relevant information and alerts* | *Web-app (React framework)*                  | **      |
-| *Rapid scalability*                              | *Cloud Hosting (AWS)*                        | **      |
-| *Data security and integrity*                    | *Secure Communication Protocols (HTTPS)*     | **      |
-| *Quality assurance*                              | *Automated Testing and CI/CD*                | **      |
+| Goal/Requirements                                | Architectural Approach                       | Details                                                       |
+|--------------------------------------------------|----------------------------------------------|---------------------------------------------------------------|
+| *Authenticate and authorize users*               | *Dedicated server (LDAP)*                    | *[Technology Stack Selection](#technology-stack-selection)*   |
+| *Course and curriculum management*               | *Multi-tier system (Clients, REST, API, DB)* | **                                                            |
+| *Dashboard with relevant information and alerts* | *Web-app (React framework)*                  | *[Technology Stack Selection](#technology-stack-selection)*   |
+| *Rapid scalability*                              | *Cloud Hosting (AWS)*                        | *[Cloud-Based Infrastructure](#cloud-based-infrastructure)*   |
+| *Data security and integrity*                    | *Secure Communication Protocols (HTTPS)*     | -                                                             |
+| *Quality assurance*                              | *Automated Testing and CI/CD*                | *[Automated Testing and CI/CD](#automated-testing-and-ci/cd)* |
 
 # 5. Building Block View
 
